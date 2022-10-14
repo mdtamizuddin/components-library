@@ -43,7 +43,7 @@ const Index = ({ data }) => {
 
 export default Index;
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const url = `/api/components/navbar`;
   const data = await api.get(url).then((res) => res.data);
   return {
