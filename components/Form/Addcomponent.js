@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React, { useState } from "react";
+import api from "../Hooks/instance";
 
 const Addcomponent = ({ category }) => {
   const [imageMobile, setImgMobile] = useState("");
@@ -34,18 +35,11 @@ const Addcomponent = ({ category }) => {
         code,
         css: style,
       };
-      fetch("http://localhost:3000/api/components", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(newComponent),
-      })
-        .then((res) => res.json())
-        .then((json) => console.log(json));
-    }
-    else if (!imageDesctop) {
-      
+
+      api
+        .post("/api/components", newComponent)
+        .then((res) => console.log(res.data));
+    } else if (!imageDesctop) {
     }
   };
 

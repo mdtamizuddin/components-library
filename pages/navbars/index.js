@@ -2,11 +2,12 @@ import Head from "next/head";
 import Link from "next/link";
 import React, { useState } from "react";
 import Sidebar from "../../components/Bars/Sidebars";
-import Navbar from '../../components/Bars/Navbar'
+import Navbar from "../../components/Bars/Navbar";
 import Addcomponent from "../../components/Form/Addcomponent";
+import api from "../../components/Hooks/instance";
 const Index = ({ data }) => {
   const [showSidebar, setShowSidebar] = useState(true);
-  const [show , setShow] = useState(false)
+  const [show, setShow] = useState(false);
   return (
     <main className="home-container ">
       <Head>
@@ -14,15 +15,17 @@ const Index = ({ data }) => {
       </Head>
       <Sidebar show={showSidebar} setShow={setShowSidebar} />
       <section className="container-right pb-10 px-5">
-      <Navbar show={showSidebar} setShow={setShowSidebar} />
-      <div className={`${!showSidebar && "h-[100px]"}`}></div>
-      <button onClick={()=> {
-        show ? setShow(false) : setShow(true)
-      }}
-      className="btn btn-primary mx-auto block mt-5">Add A Navbar</button>
-      {
-        show && <Addcomponent category={"navbar"}/>
-      }
+        <Navbar show={showSidebar} setShow={setShowSidebar} />
+        <div className={`${!showSidebar && "h-[100px]"}`}></div>
+        <button
+          onClick={() => {
+            show ? setShow(false) : setShow(true);
+          }}
+          className="btn btn-primary mx-auto block mt-5"
+        >
+          Add A Navbar
+        </button>
+        {show && <Addcomponent category={"navbar"} />}
         {data.map((nav) => (
           <div key={nav._id} className="p-5 shadow mt-5">
             <h1 className="text-2xl font-bold text-primary mb-3">Navbar</h1>
@@ -41,11 +44,8 @@ const Index = ({ data }) => {
 export default Index;
 
 export async function getStaticProps() {
-  const data = await fetch("http://localhost:3000/api/components/", {
-    headers: {
-      category: "navbar",
-    },
-  }).then((res) => res.json());
+  const url = `http://localhost:5000/api/components/navbar`;
+  const data = await api.get(url).then((res) => res.data);
   return {
     props: { data }, // will be passed to the page component as props
   };

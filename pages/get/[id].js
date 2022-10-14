@@ -15,7 +15,7 @@ const GetCode = () => {
   const [codeData, setCodeDat] = useState({});
   useEffect(() => {
     setLoading(true);
-    fetch(`http://localhost:3000/api/components/${id}`)
+    fetch(`/api/components/${id}`)
       .then((res) => {
         setLoading(false);
         return res.json();
