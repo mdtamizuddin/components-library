@@ -44,7 +44,7 @@ const Index = ({ data }) => {
 export default Index;
 
 export async function getStaticProps() {
-  const url = `http://localhost:5000/api/components/navbar`;
+  const url = `/api/components/navbar`;
   const data = await api.get(url).then((res) => res.data);
   return {
     props: { data }, // will be passed to the page component as props
