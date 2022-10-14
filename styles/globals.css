@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('./utility.css');
+@import url('./home.css');
+@import url('./responsive.css');
+
+:root {
+  --primary: #7F63F4;
+  --secondary: #FF8423;
+  --light-green: #71D875;
+  --line-blue: #00AFF0;
+  --yollow: #FFC107;
+  --lite-primary: #D85BF7;
+  --dark: #011025;
+  --bg: #F3F6F9;
+  --shadow: #DDDFE1;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container-res {
+  width: 95%;
+  margin: 0 auto;
+}
+
+/* =========================================
+   <----------> Home Page Design<---------->  
+   ========================================= */
+
+body {
+  background-color: var(--bg);
+}
+
+.home-container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+}
+
+.container-right {
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 100%;
+  margin-left: 15px;
+  height: 100vh;
+}
+
+/* Sidebar  */
+/* Sidebar  */
+.sidebar {
+  width: 280px;
+  height: 100vh;
+  box-shadow: 0.5px 3px 10px rgba(119, 119, 119, 0.1);
+  background-color: white;
+  overflow: hidden;
+}
+.icon{
+  color: var(--lite-primary);
+  font-size: 25px;
+  cursor: pointer;
+}
+.text-sp{
+  font-size: 17px;
+  color: rgb(92, 92, 92);
+  font-weight: 600;
+}
+.shadow {
+  box-shadow: 0.5px 3px 10px rgba(119, 119, 119, 0.1) !important;
+}
+
+.sidebar .top-bar {
+  height: 100px;
+  width: 100%;
+  background-color: var(--primary);
+  color: white;
+  display: flex;
+  padding: 10px;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.side-bar-link-container {
+
+  height: 100%;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  /* background-color: var(--secondary); */
+}
+
+::-webkit-scrollbar-track {
+  background: var(--line-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c7b9f7;
+}
+
+.side-bar-link {
+  overflow: scroll;
+}
+
+.side-bar-link li {
+  padding: 10px 20%;
+  margin-top: 5px;
+}
+
+.active-link {
+  background: #f0edfa;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+  border-left: 3px solid var(--primary);
+}

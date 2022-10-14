@@ -1,0 +1,143 @@
+/* HOme Screen Styles  */
+/* HOme Screen Styles  */
+/* HOme Screen Styles  */
+:root {
+  --primary: #7f63f4;
+  --secondary: #ff8423;
+  --light-green: #71d875;
+  --line-blue: #00aff0;
+  --yollow: #ffc107;
+  --lite-primary: #d85bf7;
+  --dark: #011025;
+  --bg: #f2f2f2;
+  --shadow: #dddfe1;
+}
+
+.breadcrumb-top {
+  height: 50px;
+}
+.search-box {
+  width: 400px;
+  height: 50px;
+  border-radius: 10px;
+  margin-left: 50px;
+  position: relative;
+  background-color: var(--bg);
+}
+
+.search-box input {
+  width: 100%;
+  background-color: var(--bg);
+  height: 100%;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.navbar-home {
+  height: 100px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+}
+
+.search-box i {
+  position: absolute;
+  top: 0;
+  font-size: 18px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  color: #7f63f4;
+}
+
+.adding-form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  filter: drop-shadow(0px 4px 4px rgba(206, 206, 206, 0.452));
+}
+
+.filter-shadow {
+  filter: drop-shadow(0px 4px 4px rgba(223, 220, 220, 0.25));
+}
+
+.adding-form input {
+  padding: 10px 10px;
+  margin-top: 7px;
+  height: 50px;
+}
+
+.adding-form input:focus {
+  outline: var(--primary) !important;
+}
+
+.form-student-enrollment input {
+  padding: 10px 10px;
+  margin-top: 7px;
+  height: 50px;
+  filter: drop-shadow(0px 4px 4px rgba(206, 206, 206, 0.452));
+}
+
+.form-student-enrollment select {
+  background-color: white;
+  padding: 10px 10px;
+  margin-top: 7px;
+  height: 50px;
+  filter: drop-shadow(0px 4px 4px rgba(206, 206, 206, 0.452));
+}
+
+.form-student-enrollment input:focus {
+  outline: var(--line-blue);
+}
+
+.form-student-enrollment select:focus {
+  outline: var(--line-blue);
+}
+
+.table-row-Active {
+  filter: drop-shadow(0px 4px 4px rgba(206, 206, 206, 0.692)) !important;
+}
+
+.comp-adding-form {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  padding: 40px 20px;
+  box-shadow: 0px 0px 10px 2px rgba(179, 176, 176, 0.315);
+  border-radius: 10px;
+}
+.comp-adding-form p {
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 15px !important;
+}
+.comp-adding-form input {
+  width: 100%;
+  border-radius: 5px;
+  margin-top: 10px;
+  padding: 10px;
+  box-shadow: 0px 0px 5px 1px #8063f48a;
+}
+.comp-adding-form .textarea {
+  width: 100%;
+  border-radius: 5px;
+  margin-top: 10px;
+  padding: 10px;
+  box-shadow: 0px 0px 5px 1px #8063f48a;
+}
+.h-400 {
+  height: 400px;
+}
+/* .comp-adding-form ::fo  */
+.comp-adding-form input:focus {
+  box-shadow: 0px 2px 5px 1px rgb(240, 161, 161);
+  outline: none;
+}
+
+.comp-adding-form textarea:focus {
+  box-shadow: 0px 2px 5px 1px rgb(240, 161, 161);
+  outline: none;
+  background-color: rgb(20, 20, 20);
+  color: rgb(13, 221, 13);
+}

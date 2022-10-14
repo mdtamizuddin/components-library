@@ -1,0 +1,42 @@
+@media only screen and (max-width: 1000px) {
+    .search-box {
+        width: 350px;
+        height: 35px;
+        border: 1px solid rgb(231, 239, 241);
+        margin-bottom: 10px !important;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .options-topbar {
+        display: flex;
+        justify-content: space-between;
+    }
+    .navbar-home {
+        padding-bottom: 10px;
+        display: block !important;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .hidden-sidebar {
+        display: none;
+    }
+
+    .sidebar {
+        position: absolute;
+        z-index: 100;
+        width: 70% !important;
+    }
+
+    .container-right {
+        margin-left: 0 !important;
+    }
+
+    .adding-form {
+        width: 100%;
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    /* Top Bar Styling End Here  */
+}
