@@ -9,7 +9,7 @@ const Sidebar = ({ show, setShow }) => {
       <div className="top-bar flex">
         <h2 className="text-xl font-bold flex flex-col text-center">
           <i className="fa-solid fa-user text-xl mr-2"></i>
-          <span>Compo House</span>
+          <span>Code House</span>
         </h2>
         {show ? (
           <div title="Show Sidebar" onClick={() => setShow(false)}>

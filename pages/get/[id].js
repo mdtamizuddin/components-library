@@ -6,27 +6,27 @@ import Sidebar from "../../components/Bars/Sidebars";
 import CodeMirror from "@uiw/react-codemirror";
 import { javascript } from "@codemirror/lang-javascript";
 import { oneDark } from "@codemirror/theme-one-dark";
+import api from "../../components/Hooks/instance";
 
 const GetCode = () => {
   const [showSidebar, setShowSidebar] = useState(false);
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const { id } = router.query;
+
   const [codeData, setCodeDat] = useState({});
   useEffect(() => {
-    setLoading(true);
-    fetch(`/api/components/${id}`)
-      .then((res) => {
+    if (id) {
+      setLoading(true);
+      api.get(`/api/components/one/${id}`).then((res) => {
         setLoading(false);
-        return res.json();
-      })
-      .then((data) => {
-        setCodeDat(data);
+        setCodeDat(res.data);
       });
+    }
   }, [id]);
 
   if (loading) {
-    return "Loading";
+    return "Loading data ..........."
   }
   return (
     <div className="home-container">
@@ -40,7 +40,7 @@ const GetCode = () => {
 
         <div className="content shadow p-3">
           <img src={codeData.img} alt="" />
-          <p className=" p-3 mb-3">{codeData.desc}</p>
+          <p className="text-xl text-secondary font-bold p-3 mb-3">{codeData.desc}</p>
           <section
             className={`${
               codeData.css && "grid grid-cols-1 lg:grid-cols-2 ga-10"
