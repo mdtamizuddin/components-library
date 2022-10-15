@@ -32,7 +32,7 @@ const Index = ({ data }) => {
                   </button>
                 </Link>
                 <RequireAdmin>
-                  <Link href={`/get/${nav._id}`}>
+                  <Link href={`/edit/${nav._id}`}>
                     <button className="btn btn-success text-white btn-sm mt-4">
                       Edit Component
                     </button>
