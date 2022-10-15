@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
+import routes1 from "../Hooks/navigatons";
 
 const Sidebar = ({ show, setShow }) => {
   const router = useRouter();
@@ -73,81 +74,4 @@ const Sidebar = ({ show, setShow }) => {
 
 export default Sidebar;
 
-const routes1 = [
-  {
-    name: "Template",
-    path: "/",
-    icon: "fa-layer-group",
-  },
-  {
-    name: "navbars",
-    path: "/navbars",
-    icon: "fa-bars",
-  },
-  {
-    name: "Hero Area",
-    path: "/hero-area",
-    icon: "fa-layer-group",
-  },
-  {
-    name: "buttons",
-    path: "/buttons",
-    icon: "fa-toggle-on",
-  },
-  {
-    name: "Forms",
-    path: "/forms",
-    icon: "fa-table",
-  },
-  {
-    name: "Content",
-    path: "/content",
-    icon: "fa-layer-group",
-  },
-  {
-    name: "Modal",
-    path: "/modal",
-    icon: "fa-layer-group",
-  },
-  {
-    name: "feature",
-    path: "/feature",
-    icon: "fa-layer-group",
-  },
-  {
-    name: "pricing",
-    path: "/pricing",
-    icon: "fa-money-bill",
-  },
-  {
-    name: "statistic",
-    path: "/statistic",
-    icon: "fa-calendar-days",
-  },
-  {
-    name: "card",
-    path: "/card",
-    icon: "fa-calendar-days",
-  },
-  {
-    name: "team",
-    path: "/team",
-    icon: "fa-calendar-days",
-  },
-  {
-    name: "drawer",
-    path: "/drawer",
-    icon: "fa-comment-dots",
-  },
-  {
-    name: "footer",
-    path: "/footer",
-    icon: "fa-address-book",
-  },
-  {
-    name: "toast",
-    path: "/toast",
-    icon: "fa-file-lines",
-  },
-];
 

@@ -2,6 +2,7 @@ import Image from "next/image";
 import React, { useState } from "react";
 import api from "../Hooks/instance";
 import { toast } from "react-hot-toast";
+import routes1 from "../Hooks/navigatons";
 
 const Addcomponent = ({ category }) => {
   const [imageMobile, setImgMobile] = useState("");
@@ -49,6 +50,9 @@ const Addcomponent = ({ category }) => {
         }
       });
     } else if (!imageDesctop) {
+      toast.error("Select An image for view of component");
+    } else {
+      toast.error("Something wrong");
     }
   };
 
@@ -59,7 +63,17 @@ const Addcomponent = ({ category }) => {
           Component Adding Form
         </h1>
         <p>Category</p>
-        <input className="textarea" name="category" required />
+        <select
+          name="category"
+          className="w-full p-3 shadow mt-3 rounded-md focus:outline-primary"
+        >
+          <option>Select a Category</option>
+          {routes1.map((nav) => (
+            <option value={nav.path.split("/")[1]} key={nav.name}>
+              {nav.path.split("/")[1]}
+            </option>
+          ))}
+        </select>
         <p>About Component</p>
         <textarea className="textarea " name="desc" required />
         <p>Code Html / JSX</p>

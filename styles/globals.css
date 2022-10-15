@@ -2,20 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('./utility.css');
-@import url('./home.css');
-@import url('./responsive.css');
+@import url("./utility.css");
+@import url("./home.css");
+@import url("./responsive.css");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css");
 
 :root {
-  --primary: #7F63F4;
-  --secondary: #FF8423;
-  --light-green: #71D875;
-  --line-blue: #00AFF0;
-  --yollow: #FFC107;
-  --lite-primary: #D85BF7;
+  --primary: #7f63f4;
+  --secondary: #ff8423;
+  --light-green: #71d875;
+  --line-blue: #00aff0;
+  --yollow: #ffc107;
+  --lite-primary: #d85bf7;
   --dark: #011025;
-  --bg: #F3F6F9;
-  --shadow: #DDDFE1;
+  --bg: #f3f6f9;
+  --shadow: #dddfe1;
 }
 
 * {
@@ -59,12 +60,12 @@ body {
   background-color: white;
   overflow: hidden;
 }
-.icon{
+.icon {
   color: var(--lite-primary);
   font-size: 25px;
   cursor: pointer;
 }
-.text-sp{
+.text-sp {
   font-size: 17px;
   color: rgb(92, 92, 92);
   font-weight: 600;
@@ -85,7 +86,6 @@ body {
 }
 
 .side-bar-link-container {
-
   height: 100%;
 }
 
