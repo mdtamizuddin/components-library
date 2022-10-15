@@ -9,7 +9,7 @@ import { oneDark } from "@codemirror/theme-one-dark";
 import api from "../../components/Hooks/instance";
 
 const GetCode = () => {
-  const [showSidebar, setShowSidebar] = useState(false);
+  const [showSidebar, setShowSidebar] = useState(true);
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const { id } = router.query;
@@ -26,7 +26,7 @@ const GetCode = () => {
   }, [id]);
 
   if (loading) {
-    return "Loading data ..........."
+    return "Loading data ...........";
   }
   return (
     <div className="home-container">
@@ -40,7 +40,9 @@ const GetCode = () => {
 
         <div className="content shadow p-3">
           <img src={codeData.img} alt="" />
-          <p className="text-xl text-secondary font-bold p-3 mb-3">{codeData.desc}</p>
+          <p className="text-xl text-secondary font-bold p-3 mb-3">
+            {codeData.desc}
+          </p>
           <section
             className={`${
               codeData.css && "grid grid-cols-1 lg:grid-cols-2 ga-10"

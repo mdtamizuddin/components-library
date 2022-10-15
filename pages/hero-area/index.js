@@ -23,7 +23,7 @@ const Index = ({ data }) => {
           data.map((nav) => (
             <div key={nav._id} className="p-5 shadow mt-5">
               <h1 className="text-2xl font-bold text-primary mb-3">
-                Navbar
+                Hero Area
               </h1>
               <img className="mx-auto max-h-[500px]" src={nav.img} />
               <p className="mt-4 text-xl">{nav.desc}</p>
@@ -56,7 +56,7 @@ const Index = ({ data }) => {
 export default Index;
 
 export async function getServerSideProps() {
-  const url = `/api/components/navbar`;
+  const url = `/api/components/hero-area`;
   const data = await api.get(url).then((res) => res.data);
   return {
     props: { data }, // will be passed to the page component as props

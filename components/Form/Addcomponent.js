@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import api from "../Hooks/instance";
+import { toast } from "react-hot-toast";
 
 const Addcomponent = ({ category }) => {
   const [imageMobile, setImgMobile] = useState("");
@@ -26,9 +27,10 @@ const Addcomponent = ({ category }) => {
     const desc = e.target.desc.value;
     const code = e.target.code.value;
     const style = e.target.style.value;
+    const category = e.target.category.value;
     if (imageDesctop && code && category) {
       const newComponent = {
-        category: "navbar",
+        category,
         img: imageDesctop,
         imgMobile: imageMobile,
         desc,
@@ -36,9 +38,16 @@ const Addcomponent = ({ category }) => {
         css: style,
       };
 
-      api
-        .post("/api/components", newComponent)
-        .then((res) => console.log(res.data));
+      api.post("/api/components", newComponent).then((res) => {
+        if (res.status === 200) {
+          e.target.reset();
+          toast.success("Data Added");
+          setImgDesktop("");
+          setImgMobile("");
+        } else {
+          toast.error(res.data.message);
+        }
+      });
     } else if (!imageDesctop) {
     }
   };
@@ -49,6 +58,8 @@ const Addcomponent = ({ category }) => {
         <h1 className="text-center text-3xl font-semibold">
           Component Adding Form
         </h1>
+        <p>Category</p>
+        <input className="textarea" name="category" required />
         <p>About Component</p>
         <textarea className="textarea " name="desc" required />
         <p>Code Html / JSX</p>

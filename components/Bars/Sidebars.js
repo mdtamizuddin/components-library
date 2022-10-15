@@ -65,58 +65,6 @@ const Sidebar = ({ show, setShow }) => {
               </Link>
             </li>
           ))}
-          <hr className="bg-dark-white mt-4" />
-          <li>
-            <span className="text-sm">APPS</span>
-          </li>
-
-          {routes2.map((route) => (
-            <li
-              key={route.name}
-              className={` ${router.pathname === route.path && "active-link"} `}
-            >
-              <Link href={route.path}>
-                <a className="capitalize">
-                  <i className={`fa-solid mr-2 ${route.icon}`}></i>
-                  {route.name}
-                </a>
-              </Link>
-            </li>
-          ))}
-          <hr className="bg-dark-white mt-4" />
-          <li>
-            <span className="text-sm uppercase">Pages</span>
-          </li>
-          {Pages.map((route) => (
-            <li
-              key={route.name}
-              className={` ${router.pathname === route.path && "active-link"} `}
-            >
-              <Link href={route.path}>
-                <a className="capitalize">
-                  <i className={`fa-solid mr-2 ${route.icon}`}></i>
-                  {route.name}
-                </a>
-              </Link>
-            </li>
-          ))}
-          <hr className="bg-dark-white mt-4" />
-          <li>
-            <span className="text-sm uppercase">user interface</span>
-          </li>
-          {userInterFace.map((route) => (
-            <li
-              key={route.name}
-              className={` ${router.pathname === route.path && "active-link"} `}
-            >
-              <Link href={route.path}>
-                <a className="capitalize">
-                  <i className={`fa-solid mr-2 ${route.icon}`}></i>
-                  {route.name}
-                </a>
-              </Link>
-            </li>
-          ))}
         </ul>
       </div>
     </main>
@@ -138,103 +86,68 @@ const routes1 = [
   },
   {
     name: "Hero Area",
-    path: "/layout",
+    path: "/hero-area",
     icon: "fa-layer-group",
   },
   {
-    name: "mailbox",
-    path: "/mailbox",
-    icon: "fa-envelope",
+    name: "buttons",
+    path: "/buttons",
+    icon: "fa-toggle-on",
   },
   {
-    name: "ecommarce",
-    path: "/ecommarce",
-    icon: "fa-cart-shopping",
+    name: "Forms",
+    path: "/forms",
+    icon: "fa-table",
   },
-];
-const routes2 = [
   {
-    name: "calander",
-    path: "/calander",
+    name: "Content",
+    path: "/content",
+    icon: "fa-layer-group",
+  },
+  {
+    name: "Modal",
+    path: "/modal",
+    icon: "fa-layer-group",
+  },
+  {
+    name: "feature",
+    path: "/feature",
+    icon: "fa-layer-group",
+  },
+  {
+    name: "pricing",
+    path: "/pricing",
+    icon: "fa-money-bill",
+  },
+  {
+    name: "statistic",
+    path: "/statistic",
     icon: "fa-calendar-days",
   },
   {
-    name: "messanger",
-    path: "/messanger",
+    name: "card",
+    path: "/card",
+    icon: "fa-calendar-days",
+  },
+  {
+    name: "team",
+    path: "/team",
+    icon: "fa-calendar-days",
+  },
+  {
+    name: "drawer",
+    path: "/drawer",
     icon: "fa-comment-dots",
   },
   {
-    name: "contact",
-    path: "/contact",
+    name: "footer",
+    path: "/footer",
     icon: "fa-address-book",
   },
   {
-    name: "file manager",
-    path: "/file-manager",
+    name: "toast",
+    path: "/toast",
     icon: "fa-file-lines",
   },
-  {
-    name: "todo",
-    path: "/todo",
-    icon: "fa-clipboard",
-  },
-  {
-    name: "News Feed",
-    path: "/news",
-    icon: "fa-newspaper",
-  },
 ];
-const Pages = [
-  {
-    name: "invoices",
-    path: "/invoices",
-    icon: "fa-file-invoice-dollar",
-  },
-  {
-    name: "event",
-    path: "/event",
-    icon: "fa-calendar-check",
-  },
-  {
-    name: "404 Page",
-    path: "/notfound",
-    icon: "fa-address-book",
-  },
-  {
-    name: "Projects",
-    path: "/projects",
-    icon: "fa-diagram-project",
-  },
-  {
-    name: "coming Soon",
-    path: "/upcomming",
-    icon: "fa-rocket",
-  },
-  {
-    name: "Profile",
-    path: "/profile",
-    icon: "fa-user",
-  },
-];
-const userInterFace = [
-  {
-    name: "elements",
-    path: "/elements",
-    icon: "fa-elementor",
-  },
-  {
-    name: "Typography",
-    path: "/typography",
-    icon: "fa-font",
-  },
-  {
-    name: "icons",
-    path: "/icons",
-    icon: "fa-icons",
-  },
-  {
-    name: "tables",
-    path: "/tables",
-    icon: "fa-table",
-  },
-];
+
