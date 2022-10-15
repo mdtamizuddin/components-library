@@ -12,7 +12,7 @@ const Index = ({ data }) => {
   return (
     <main className="home-container ">
       <Head>
-        <title>Footers</title>
+        <title>All Components</title>
       </Head>
       <Sidebar show={showSidebar} setShow={setShowSidebar} />
       <section className="container-right pb-10 px-5">
