@@ -3,17 +3,22 @@ import auth from "../Hooks/firebase.init";
 import { useAuthState } from "react-firebase-hooks/auth";
 import RequireAdmin from "../Hooks/RequireAdmin";
 import { signOut } from "firebase/auth";
+import SearhModal from './SearchModal'
+import { useState } from "react";
 const Navbar = ({ show, setShow }) => {
   const [user, loading] = useAuthState(auth);
+  const [showSe, setSe] = useState(false)
   if (loading) {
     return;
   }
   return (
     <main className={`navbar-home navbar ${!show && "fixed"} z-50`}>
-      <div className="search-box">
+      <div onClick={() => setSe(true)} className="search-box">
         <input
+          disabled
+
           type="text"
-          placeholder="Search"
+          placeholder="Search A Component"
           className="focus:outline-primary"
         />
         <button>
@@ -53,12 +58,29 @@ const Navbar = ({ show, setShow }) => {
                 className="menu dropdown-content p-2 shadow bg-base-100 rounded-box w-52 mt-4"
               >
                 <li>
-                  <a>Profile</a>
+                  <Link href={'/request'}>
+                    <a>Request For Adding New Component</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href={'/me/component'}>
+                    <a>My Components</a>
+                  </Link>
                 </li>
                 <RequireAdmin>
                   <li>
                     <Link href={"/add-component"}>
                       <a>Add A Component</a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href={"/add-component/post"}>
+                      <a>Add A Post</a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href={"/setting/pending"}>
+                      <a>Pending</a>
                     </Link>
                   </li>
                 </RequireAdmin>
@@ -87,8 +109,14 @@ const Navbar = ({ show, setShow }) => {
           ></i>
         </div>
       </div>
+      {
+        showSe
+        &&
+        <SearhModal setShow={setSe} />
+      }
     </main>
   );
 };
 
 export default Navbar;
+

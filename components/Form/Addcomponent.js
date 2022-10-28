@@ -1,12 +1,23 @@
-import Image from "next/image";
-import React, { useState } from "react";
+
+import React, { useMemo, useRef, useState } from "react";
 import api from "../Hooks/instance";
 import { toast } from "react-hot-toast";
 import routes1 from "../Hooks/navigatons";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../Hooks/firebase.init";
+import dynamic from "next/dynamic";
+import Loader from "../Loader/Loader";
+const importJodit = () => import('jodit-react')
+const JoditEditor = dynamic(importJodit, {
+  ssr: false
+})
 
-const Addcomponent = ({ category }) => {
+const Addcomponent = ({ }) => {
+  const [user, loading] = useAuthState(auth)
   const [imageMobile, setImgMobile] = useState("");
   const [imageDesctop, setImgDesktop] = useState("");
+  const editor = useRef(null);
+  const [content, setContent] = useState('');
   const url = `https://api.imgbb.com/1/upload?key=3c0561dfb179ef4d990d0826ae879956`;
   const uploadImage = (formData, type) => {
     fetch(url, {
@@ -25,7 +36,6 @@ const Addcomponent = ({ category }) => {
 
   const formhandler = (e) => {
     e.preventDefault();
-    const desc = e.target.desc.value;
     const code = e.target.code.value;
     const style = e.target.style.value;
     const category = e.target.category.value;
@@ -34,9 +44,11 @@ const Addcomponent = ({ category }) => {
         category,
         img: imageDesctop,
         imgMobile: imageMobile,
-        desc,
+        desc: content,
         code,
         css: style,
+        user: user.email,
+        status: "ok"
       };
 
       api.post("/api/components", newComponent).then((res) => {
@@ -55,7 +67,9 @@ const Addcomponent = ({ category }) => {
       toast.error("Something wrong");
     }
   };
-
+  if (loading) {
+    return <Loader />
+  }
   return (
     <div>
       <form className="comp-adding-form" onSubmit={formhandler}>
@@ -75,7 +89,12 @@ const Addcomponent = ({ category }) => {
           ))}
         </select>
         <p>About Component</p>
-        <textarea className="textarea " name="desc" required />
+        <JoditEditor
+          ref={editor}
+          value={content}
+          tabIndex={1} // tabIndex of textarea
+          onChange={newContent => setContent(newContent)}
+        />
         <p>Code Html / JSX</p>
         <textarea className="textarea h-400" name="code" required />
 
@@ -83,7 +102,7 @@ const Addcomponent = ({ category }) => {
         <textarea className="textarea h-400" name="style" />
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mt-5">
           {imageDesctop ? (
-            <Image
+            <img
               width={1280}
               height={720}
               src={imageDesctop}
@@ -103,7 +122,7 @@ const Addcomponent = ({ category }) => {
             </div>
           )}
           {imageMobile ? (
-            <Image
+            <img
               width={1280}
               height={720}
               src={imageMobile}

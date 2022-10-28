@@ -16,6 +16,7 @@
 .breadcrumb-top {
   height: 50px;
 }
+
 .search-box {
   width: 400px;
   height: 50px;
@@ -25,7 +26,23 @@
   background-color: var(--bg);
 }
 
+.search-box2 {
+  width: 400px;
+  height: 50px;
+  border-radius: 10px;
+  position: relative;
+  background-color: var(--bg);
+}
+
 .search-box input {
+  width: 100%;
+  background-color: var(--bg);
+  height: 100%;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.search-box2 input {
   width: 100%;
   background-color: var(--bg);
   height: 100%;
@@ -107,11 +124,13 @@
   box-shadow: 0px 0px 10px 2px rgba(179, 176, 176, 0.315);
   border-radius: 10px;
 }
+
 .comp-adding-form p {
   font-size: 16px;
   font-weight: 600;
   margin-top: 15px !important;
 }
+
 .comp-adding-form input {
   width: 100%;
   border-radius: 5px;
@@ -119,6 +138,7 @@
   padding: 10px;
   box-shadow: 0px 0px 5px 1px #8063f48a;
 }
+
 .comp-adding-form .textarea {
   width: 100%;
   border-radius: 5px;
@@ -126,9 +146,11 @@
   padding: 10px;
   box-shadow: 0px 0px 5px 1px #8063f48a;
 }
+
 .h-400 {
   height: 400px;
 }
+
 /* .comp-adding-form ::fo  */
 .comp-adding-form input:focus {
   box-shadow: 0px 2px 5px 1px rgb(240, 161, 161);
@@ -140,4 +162,46 @@
   outline: none;
   background-color: rgb(20, 20, 20);
   color: rgb(13, 221, 13);
+}
+
+
+.loader {
+  border: 5px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 5px solid #0072cf;
+  width: 80px;
+  height: 80px;
+  -webkit-animation: spin 0.6s linear infinite;
+  /* Safari */
+  animation: spin 0.7s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.overlay {
+  display: none;
+}
+
+.card-overlay:hover .overlay {
+  display: flex;
 }

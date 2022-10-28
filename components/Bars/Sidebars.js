@@ -1,12 +1,24 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { useState } from "react";
 import routes1 from "../Hooks/navigatons";
-
+import Loader from '../Loader/Loader'
 const Sidebar = ({ show, setShow }) => {
   const router = useRouter();
-  // console.log(router.pathname)
+  const [load, setLoading] = useState(false)
+  const loading = () => {
+    setLoading(true)
+  }
+  setTimeout(() => {
+    setLoading(false)
+  }, 3000);
   return (
     <main className={`${show ? "sidebar" : "hidden"} `}>
+      {
+        load && <div className="absolute w-full bg-white h-full">
+          <Loader />
+        </div>
+      }
       <div className="top-bar flex">
         <h2 className="text-xl font-bold flex flex-col text-center">
           <i className="fa-solid fa-user text-xl mr-2"></i>
@@ -55,11 +67,12 @@ const Sidebar = ({ show, setShow }) => {
         <ul className="mt-5 sm-text side-bar-link">
           {routes1.map((route) => (
             <li
+              onClick={loading}
               key={route.name}
               className={` ${router.pathname === route.path && "active-link"} `}
             >
               <Link href={route.path}>
-                <a className="capitalize">
+                <a className="capitalize" >
                   <i className={`fa-solid mr-2 ${route.icon}`}></i>
                   {route.name}
                 </a>
