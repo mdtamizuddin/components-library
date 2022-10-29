@@ -10,4 +10,3 @@ jobs:
           username: ${{ secrets.FTP_USENAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           server-dir: /other-websites/codehouse
-           branch: master
