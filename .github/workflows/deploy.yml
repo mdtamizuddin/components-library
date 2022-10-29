@@ -1,8 +1,8 @@
+name: Publish Website to Cpanel
 on:
   push:
     branches:
     - master
-
 jobs:
  FTP-Deploy-Action:
     runs-on: ubuntu-latest
@@ -17,4 +17,5 @@ jobs:
           ftp-server: ${{ secrets.FTP_SERVER }}
           ftp-username: ${{ secrets.FTP_USENAME }}
           ftp-password: ${{ secrets.FTP_PASSWORD }}
+          cpanel_token: 'GT70W0YOQ8Y9K7X6PS1YTWF3V2IEAYHF'
           branch: master
