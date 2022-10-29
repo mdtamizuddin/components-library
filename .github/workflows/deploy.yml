@@ -9,4 +9,7 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USENAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: /other-websites/codehouse
+          repository_root: '/other-websites/codehouse'
+          branch: master
+      - name: echo deploy-duration
+        run: echo "Deployment took ${{ steps.deploy.outputs.duration }} milliseconds"
