@@ -11,9 +11,9 @@ jobs:
         id: deploy
         uses: pinkasey/cpanel-deploy-action@v1.0.0
         with:
-         ftp-server: ${{ secrets.FTP_SERVER }}
-          ftp-username: ${{ secrets.FTP_USENAME }}
-          ftp-password: ${{ secrets.FTP_PASSWORD }}
+         ftp-server: ' ftp.sifulcrypto.com'
+          ftp-username: 'codehouse@codehouse.mdtamiz.xyz'
+          ftp-password: '@tomiz.com'
           hostname: 'https://codehouse.mdtamiz.xyz'
           repository_root: '/other-websites/codehouse'
           branch: master
