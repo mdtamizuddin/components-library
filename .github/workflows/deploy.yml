@@ -4,10 +4,10 @@ jobs:
     steps:
       - name: Deploy to cPanel
         id: deploy
-        uses: mdtamizuddin/cpanel-deploy-action@v1.0.0
+        uses: pinkasey/cpanel-deploy-action@v1.0.0
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USENAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           server-dir: /other-websites/codehouse
-          branch: master
+           branch: master
