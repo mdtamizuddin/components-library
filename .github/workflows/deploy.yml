@@ -16,5 +16,3 @@ jobs:
           ftp-password: '@tomiz.com'
           branch: master
           cpanel_token: 'GT70W0YOQ8Y9K7X6PS1YTWF3V2IEAYHF'
-      - name: echo deploy-duration
-        run: echo "Deployment took ${{ steps.deploy.outputs.duration }} milliseconds"
