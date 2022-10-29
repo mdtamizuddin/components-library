@@ -1,0 +1,12 @@
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to cPanel
+        id: deploy
+        uses: pinkasey/cpanel-deploy-action@v1.0.0
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USENAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: /other-websites/codehouse
