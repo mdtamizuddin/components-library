@@ -4,15 +4,16 @@ on:
     branches:
     - master
 jobs:
-  web-deploy:
+  deploy:
     name: Deploy
     runs-on: ubuntu-latest
     steps:
       - name: Deploy to cPanel
         uses: actions/checkout@v2
     - name : Sync files
+      user: Samkirkland/FTP-Deploy-action@4.3.0
       with:
           server: 'ftp.sifulcrypto.com'
           username: 'codehouse@codehouse.mdtamiz.xyz'
           password: '@tomiz.com'
-          cpanel_token: 'GT70W0YOQ8Y9K7X6PS1YTWF3V2IEAYHF'
+          server-dir: /other-websites/codehouse/
