@@ -1,20 +1,20 @@
 on:
   push:
     branches:
-    - '*'
-    
+    - master
+
 jobs:
-  deploy:
+ FTP-Deploy-Action:
     runs-on: ubuntu-latest
+    name: FTP-Deploy-Action
     steps:
-      - name: Deploy to cPanel
-        id: deploy
-        uses: pinkasey/cpanel-deploy-action@v1.0.0
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USENAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          repository_root: '/other-websites/codehouse'
+      - uses: action/checkout@2.1.0
+      with:
+      fetch-depth: 2
+    - name : FTP-Deploy-Action
+      uses: pinkasey/cpanel-deploy-action@v1.0.0user
+     with:
+          ftp-server: ${{ secrets.FTP_SERVER }}
+          ftp-username: ${{ secrets.FTP_USENAME }}
+          ftp-password: ${{ secrets.FTP_PASSWORD }}
           branch: master
-      - name: echo deploy-duration
-        run: echo "Deployment took ${{ steps.deploy.outputs.duration }} milliseconds"
