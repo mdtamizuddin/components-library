@@ -70,6 +70,7 @@ const AddPost = ({ }) => {
                         <option value={'node'}>Node.js</option>
                         <option value={'mongodb'}>MongoDB</option>
                         <option value={'mongoose'}>Mongoose</option>
+                        <option value={'problem'}>Problem</option>
 
                     </select>
                     <p>Title</p>

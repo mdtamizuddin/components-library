@@ -62,6 +62,17 @@ const Tutorials = () => {
                     </div>
                 </Link>
             </div>
+            <div style={{
+                backgroundImage: `url(https://i0.wp.com/denisgmclaughlin.com/wp-content/uploads/2017/06/Unsolveable.png?ssl=1)`,
+                backgroundPosition: "center",
+                backgroundSize: "contain"
+            }} className="card card-overlay h-28 mt-10 shadow">
+                <Link href={'/tutorial/problem'}>
+                    <div className="overlay  justify-center items-center h-full bg-slate-700 cursor-pointer">
+                        <h2 className='text-xl text-primary z-50'>Click Here For Explore</h2>
+                    </div>
+                </Link>
+            </div>
         </div>
     )
 }
