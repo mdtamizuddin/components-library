@@ -63,6 +63,14 @@ const Index = ({ data }) => {
                           }
                           <img className="mx-auto max-h-[400px]" src={comp.img} />
                           <div className='mt-5 max-h-24 overflow-y-auto' dangerouslySetInnerHTML={createMarkup()}></div>
+                          <div className='mt-3 flex'>
+                                <div className="avatar">
+                                    <div className="w-6  rounded-full">
+                                        <img src="https://www.kindpng.com/picc/m/78-786207_user-avatar-png-user-avatar-icon-png-transparent.png" />
+                                    </div>
+                                </div>
+                                <p className='ml-2'>{comp.user ? comp?.user?.slice(0, 10) : 'Md Tamiz Uddin'} ...</p>
+                            </div>
                           <div className="flex justify-between">
                             <Link href={`/get/${comp._id}`}>
                               <button className="btn btn-primary btn-sm mt-4">

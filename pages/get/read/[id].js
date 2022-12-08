@@ -26,9 +26,6 @@ const ReadMore = () => {
             });
         }
     }, [id]);
-    function createMarkup() {
-        return { __html: codeData.desc };
-    }
     if (loading) {
         return <Loader />
     }
@@ -45,9 +42,15 @@ const ReadMore = () => {
                     <i className="fa-solid fa-eye mr-2"></i>
                     {codeData.visitor} Times
                 </p>
-                <div dangerouslySetInnerHTML={createMarkup()}>
-
-                </div>
+                <CodeMirror
+                    value={codeData.desc}
+                    height="auto"
+                    theme={oneDark}
+                    extensions={[javascript({ jsx: true })]}
+                    onChange={(value, viewUpdate) => {
+                        // setCode(value)
+                    }}
+                />
             </section>
         </div>
     );

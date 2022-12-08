@@ -47,7 +47,7 @@ const Addcomponent = ({ }) => {
         desc: content,
         code,
         css: style,
-        user: user.email,
+        user: user.displayName ? user.displayName : user.email,
         status: "ok"
       };
 

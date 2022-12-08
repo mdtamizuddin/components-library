@@ -5,14 +5,12 @@ import Navbar from "../../../components/Bars/Navbar";
 import Sidebar from "../../../components/Bars/Sidebars";
 import api from "../../../components/Hooks/instance";
 import RequireAdmin from "../../../components/Hooks/RequireAdmin";
-import dynamic from "next/dynamic";
+import CodeMirror from "@uiw/react-codemirror";
+import { javascript } from "@codemirror/lang-javascript";
+import { oneDark } from "@codemirror/theme-one-dark";
 import Loader from "../../../components/Loader/Loader";
 import toast from "react-hot-toast";
 
-const importJodit = () => import('jodit-react')
-const JoditEditor = dynamic(importJodit, {
-    ssr: false
-})
 
 const Edit = () => {
     const [showSidebar, setShowSidebar] = useState(true);
@@ -43,7 +41,7 @@ const Addcomponent = ({ }) => {
     const [loading1, setLoading] = useState(false);
     const { id } = useRouter().query;
     const [refach, setrefach] = useState({})
-    const editor = useRef(null);
+
 
     const [data, setData] = useState({});
     useEffect(() => {
@@ -110,11 +108,14 @@ const Addcomponent = ({ }) => {
                     />
                     <div className="overflow-hidden">
                         <p>About Component</p>
-                        <JoditEditor
-                            ref={editor}
-                            value={content ? content : data.desc}
-                            onChange={newContent => setContent(newContent)}
-                            tabIndex={1}
+                        <CodeMirror
+                            value={data.desc}
+                            height="auto"
+                            theme={oneDark}
+                            extensions={[javascript({ jsx: true })]}
+                            onChange={(value, viewUpdate) => {
+                                setContent(value)
+                            }}
                         />
                     </div>
 
