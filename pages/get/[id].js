@@ -26,7 +26,9 @@ const GetCode = () => {
       });
     }
   }, [id]);
-
+  function createMarkup() {
+    return { __html: codeData.desc };
+  }
   if (loading) {
     return <Loader />
   }
@@ -45,8 +47,8 @@ const GetCode = () => {
         </p>
         <div className="content shadow p-3">
           <img src={codeData.img} alt="" />
-          <p className="text-xl text-secondary font-bold p-3 mb-3">
-            {codeData.desc}
+          <p dangerouslySetInnerHTML={createMarkup()} className="text-xl text-secondary font-bold p-3 mb-3">
+
           </p>
 
           <section
